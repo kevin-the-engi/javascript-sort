@@ -27,6 +27,7 @@ sort = (smallOne, smallTwo) => {
 const numbers = [8, 5, 6, 9, 3, 1, 4, 2, 7, 10]
 console.log(divide(numbers))
 
+// Divide-and-conquer approach. Big O(n log n)
 // First divide the array into two recursively until they are single element arrays.
 // [8] [5] [6] [9] [3] [1] [4] [2] [7] [10]
 // Then pass both into sort function.
