@@ -1,25 +1,27 @@
 divide = (array) => {
-  if (array.length < 2) {
-    return array
+  if (array.length <= 1) {
+    return array;
   }
-  const mid = Math.floor(array.length/2)
-  const smallOne = array.slice(0, mid)
-  const smallTwo = array.slice(mid)
-  return sort(divide(smallOne), divide(smallTwo))
+
+  let mid = Math.floor(array.length / 2);
+  let smallOne = divide(array.slice(0, mid));
+  let smallTwo = divide(array.slice(mid));
+
+  return sort(smallOne, smallTwo);
 }
 
 sort = (smallOne, smallTwo) => {
-  const sorted = []
-  while(smallOne.length && smallTwo.length) {
-    if (smallOne[0] <= smallTwo[0]) {
-      sorted.push(smallOne.shift())
+  let sorted = [];
+
+  while(smallOne.length > 0 && smallTwo.length > 0) {
+    if (smallOne[0] < smallTwo[0]) {
+      sorted.push(smallOne.shift());
     } else {
-      sorted.push(smallTwo.shift())
+      sorted.push(smallTwo.shift());
     }
   }
-  const output = [...sorted, ...smallOne, ...smallTwo]
-  console.log(output)
-  return output
+
+  return sorted.concat(smallOne).concat(smallTwo);
 }
 
 const numbers = [8, 5, 6, 9, 3, 1, 4, 2, 7, 10]
