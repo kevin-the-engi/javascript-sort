@@ -26,3 +26,14 @@ sort = (smallOne, smallTwo) => {
 
 const numbers = [8, 5, 6, 9, 3, 1, 4, 2, 7, 10]
 console.log(divide(numbers))
+
+// First divide the array into two recursively until they are single element arrays.
+// [8] [5] [6] [9] [3] [1] [4] [2] [7] [10]
+// Then pass both into sort function.
+// Create output array to store result. Loop while arrays have greater than length 0, for uneven array inputs
+// Then check which element is lower, store the lower element in result and remove it from respective array.
+// Once one array is empty, concatenate remaining array to the end.
+// [8] [5] => [5, 8]
+// [6] [9][3] => [6] [3, 9] => [3, 6] + [9] => [3, 6, 9]
+// [5, 8] [3, 6, 9] => [5, 8] [6, 9] => [8] [6, 9] => [8] [9] => [9]
+// result = [3] => [3, 5] => [3, 5, 6] => [3, 5, 6, 8] => [3, 5, 6, 8, 9]
